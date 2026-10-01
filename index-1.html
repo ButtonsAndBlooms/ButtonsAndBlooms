@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons and Blooms | Handmade Crafts</title>
+    <style>
+        :root {
+            --sage-green: #87A987;
+            --sage-light: #F1F5F1;
+            --lilac: #D6C7E8;
+            --peach: #FFD3B6;
+            --yellow: #FFF5BA;
+            --pale-pink: #FFDDE2;
+            --dark-text: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--sage-light);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: white;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--sage-green);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark-text);
+            margin-left: 1.5rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--sage-green);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--pale-pink), var(--peach), var(--yellow));
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4A4A4A;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            background-color: var(--sage-green);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #6E906E;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--lilac);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .img-1 { background-color: var(--pale-pink); }
+        .img-2 { background-color: var(--lilac); }
+        .img-3 { background-color: var(--peach); }
+        .img-4 { background-color: var(--yellow); }
+        .img-5 { background-color: var(--pale-pink); }
+        .img-6 { background-color: var(--lilac); }
+
+        .card-info {
+            padding: 1.5rem;
+        }
+
+        .card-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .card-info p {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            background-color: var(--sage-light);
+            color: var(--sage-green);
+        }
+
+        .about {
+            background-color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--sage-green);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Buttons & Blooms</div>
+        <nav>
+            <a href="#shop">Shop</a>
+            <a href="#about">Our Story</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Handcrafted Wonders</h1>
+        <p>Beautifully curated button bouquets, pressed flower art, and colorful whimsy made to brighten up your home.</p>
+        <a href="#shop" class="btn">Explore Shop</a>
+    </section>
+
+    <div class="container" id="shop">
+        <h2 class="section-title">Our Featured Crafts</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img img-1">🌸 Pressed Flower Resin Coasters</div>
+                <div class="card-info">
+                    <h3>Botanical Coaster Set</h3>
+                    <p>Real meadow blossoms preserved forever in crystal clear resin with subtle pastel pink hints.</p>
+                    <span class="tag">Blooms</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img img-2">🔘 Vintage Button Bouquets</div>
+                <div class="card-info">
+                    <h3>Pastel Button Bouquet</h3>
+                    <p>Charming hand-wired bouquet crafted entirely out of unique lilac and sage vintage buttons.</p>
+                    <span class="tag">Buttons</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img img-3">🍑 Peach Blossom Hair Clips</div>
+                <div class="card-info">
+                    <h3>Floral Hair Pins</h3>
+                    <p>Delicate clay peach blossoms attached to sturdy clips for a subtle touch of springtime.</p>
+                    <span class="tag">Blooms</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img img-4">💛 Sunburst Yellow Button Art</div>
+                <div class="card-info">
+                    <h3>Framed Mosaic Art</h3>
+                    <p>A cheerful canvas mosaic mapping out a bright sunburst pattern using legacy buttons.</p>
+                    <span class="tag">Buttons</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img img-5">🌿 Sage Meadow Bookmark</div>
+                <div class="card-info">
+                    <h3>Pressed Fern Bookmark</h3>
+                    <p>Elegant transparent bookmark showcasing wild ferns and delicate pale pink petals.</p>
+                    <span class="tag">Blooms</span>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img img-6">🎨 Whimsical Craft Mystery Box</div>
+                <div class="card-info">
+                    <h3>Curated Craft Assortment</h3>
+                    <p>A surprise selection of minor button accents, sticker sheets, and miniature floral charms.</p>
+                    <span class="tag">Mixed Kit</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="about">
+        <div class="about">
+            <div class="about-content">
+                <h2 class="section-title">Our Story</h2>
+                <p>Welcome to Buttons & Blooms! What started out as a simple kitchen-table hobby has grown into a small oasis of handcrafted art. We love collecting lost elements like vintage buttons and combining them with nature's briefest masterpieces—pressed flowers. Every single item we create is unique, made with care, and shipped out in recycled eco-friendly packaging.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contact">
+        <h2 class="section-title">Custom Requests & Contact</h2>
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Buttons & Blooms! We will reply soon.');">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" required placeholder="Your Name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="Your Email">
+            </div>
+            <div class="form-group">
+                <label for="message">Message / Custom Order Details</label>
+                <textarea id="message" rows="5" required placeholder="Tell us about the design or product you are looking for..."></textarea>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Buttons & Blooms. Handcrafted with love.</p>
+    </footer>
+
+</body>
+</html>
